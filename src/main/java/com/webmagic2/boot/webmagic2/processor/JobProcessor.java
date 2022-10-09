@@ -33,6 +33,7 @@ public class JobProcessor implements PageProcessor {
         System.out.println(page.getHtml().css("div#J_footer p.mod_service_txt").toString());
         System.out.println("____________");
         List<String> list = page.getHtml().css("div#J_footer li").regex(".*精致.*").all();
+
         System.out.println(list);
         System.out.println("____________");
         System.out.println(page.getHtml().links().get());
