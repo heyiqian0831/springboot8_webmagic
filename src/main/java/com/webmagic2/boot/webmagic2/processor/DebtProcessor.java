@@ -32,16 +32,17 @@ public class DebtProcessor implements PageProcessor {
     private void paraseDetails(Page page) {
         Html html = page.getHtml();
         System.out.println(html);
-        String test = html.$("div.subnav tip-nav a#zyzb_a").toString();
-        System.out.println("_____"+html.$("div.subnav tip-nav a#zyzb_a").toString());
-        page.putField("test",test);
-        String s = html.css("div.qphox div.tmbox ul > li").toString();
-        System.out.println("++++"+s);
-        String s1 = html.$("div.qphox div.tmbox ul").toString();
-        System.out.println("+++"+s1);
-        String s2 = html.css("div.main div#divBody div.content").toString();
+        System.out.println(html.toString().length());
+//        String test = html.$("div.subnav tip-nav a#zyzb_a").toString();
+//        System.out.println("_____"+html.$("div.subnav tip-nav a#zyzb_a").toString());
+//        page.putField("test",test);
+//        String s = html.css("div.qphox div.tmbox ul > li").toString();
+//        System.out.println("++++"+s);
+//        String s1 = html.$("div.qphox div.tmbox ul").toString();
+//        System.out.println("+++"+s1);
+        String s2 = html.css("div.main div#divBody script#tmpl_zyzb").toString();
         System.out.println("------"+s2+"-------");
-        page.putField("s",s);
+//        page.putField("s",s);
     }
 //        httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36");
 
@@ -78,7 +79,7 @@ public class DebtProcessor implements PageProcessor {
     }
 
     public static void main(String[] args) {
-        Request request = new Request("https://data.eastmoney.com/stockdata/003023.html");
+        Request request = new Request("https://emweb.securities.eastmoney.com/PC_HSF10/NewFinanceAnalysis/Index?type=web&code=sz003023#zyzb-0l");
         setGetHeaders(request);
         Spider.create(new DebtProcessor())
                 .addRequest(request)
